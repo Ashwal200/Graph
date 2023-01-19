@@ -50,5 +50,11 @@ int main(){
                 break;
         }
     }
+
+    if (last_graph != NULL)
+    {
+        deleteGraph_cmd(&last_graph);
+    }
+
     return END_OF_PROGRAM;
 }

@@ -40,12 +40,12 @@ int main(){
 
             case 'S':
                 answer = shortsPath_cmd(last_graph);
-                printf("Dijsktra shortest path: %d\n", answer);
+                printf("Dijsktra shortest path: %d \n", answer);
                 break;
 
             case 'T':
                 answer= TSP_cmd(last_graph);
-                printf("TSP shortest path: %d\n", answer);
+                printf("TSP shortest path: %d \n", answer);
 //                user_decision = getchar();
                 break;
         }

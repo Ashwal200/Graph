@@ -48,9 +48,6 @@ int main(){
                 printf("TSP shortest path: %d\n", answer);
 //                user_decision = getchar();
                 break;
-
-            default:
-                printf("");
         }
     }
     return END_OF_PROGRAM;

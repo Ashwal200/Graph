@@ -4,7 +4,7 @@
 #include "edges.h"
 
 #include <limits.h>
-
+//*************************************
 
 void build_graph_cmd(pNode *head)
 {
@@ -53,16 +53,18 @@ void build_graph_cmd(pNode *head)
 
 void insert_node_cmd(pNode *head)
 {
+//    printf("get into insert\n");
     int node_to_serch = 0; // Hold the number of the node to insert.
     scanf("%d", &node_to_serch);
     pNode node_to_replace = NULL; // Hold the old node with the same number.
     pNode node_to_insert = new_node( node_to_serch ); // Creat the new node to insert.
+//    printf("new node to insert is: %d\n", node_to_serch);
     node_to_replace = contains(*head, node_to_serch);
     if( node_to_replace != NULL ) // If this node is already in the graph.
     {
         // Replace the old node address <-> new node address in all the edges.
         replace_address_in_all_edges(node_to_insert, node_to_replace, *head);
-        delete_node(*head, node_to_serch);// Delete the old node
+        delete_node(head, node_to_serch);// Delete the old node
     }
     add_edges(*head, node_to_insert);// Add the new edges to the new node.
     node_to_insert->next = (*head);
@@ -122,7 +124,7 @@ void delete_node_cmd(pNode *head)
         finish_this_node:
         curr_node = curr_node->next;
     }
-    delete_node(*head, node_num);
+    delete_node(head, node_num);
 //    getchar();//*********************************************************************
 //    printGraph_cmd(*head);
 }
@@ -265,15 +267,16 @@ void replace_address_in_all_edges(pNode node_to_insert, pNode node_to_replace, p
     }
 }
 
-void delete_node(pNode head, int node_to_remove) {
-    pNode curr = head;
+void delete_node(pNode *head, int node_to_remove) {
+//    printGraph_cmd(*head);
+    pNode curr = *head;
     pNode prev;
 
     if (curr != NULL)
     {
         // Delete from start.
-        if ((curr->node_num == node_to_remove) && (curr == head)) {
-            head = curr->next;
+        if ((curr->node_num == node_to_remove) && (curr == *head)) {
+            *head = curr->next;
             node_free(curr);
             return;
         }

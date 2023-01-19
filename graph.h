@@ -33,7 +33,7 @@ void TSP_helper_cmd(pNode head, int *arr,int num, int curr,int *pmin);
 void swap_place(int *arr, int num1, int num2);
 pNode contains(pNode head, int node_to_serch);
 void replace_address_in_all_edges(pNode node_to_insert, pNode node_to_replace, pNode head);
-void delete_node(pNode head, int node_to_remove);
+void delete_node(pNode *head, int node_to_remove);
 void add_edges(pNode head, pNode node);
 int shortest_path(pNode head, int source, int dest);
 void reset_nodes_dis_and_vis(pNode head);
